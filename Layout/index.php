@@ -296,10 +296,28 @@
 <!-- bootstrap-daterangepicker -->
 <script src="<?= $dir_template ?>vendors/moment/min/moment.min.js"></script>
 <script src="<?= $dir_template ?>vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="<?= $dir_template ?>vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="<?= $dir_template ?>build/js/custom.min.js"></script>
-
+<script>
+    $(document).ready(function () {
+        $(".money").inputmask('decimal', {
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'autoGroup': true,
+            'digits': 2,
+            'radixPoint': ",",
+            'digitsOptional': false,
+            'allowMinus': false,
+            'prefix': 'R$ ',
+            'placeholder': '',
+            'decimal': ",",
+            'thousands': ".",
+            'rightAlign': false
+        });
+    });
+</script>
 </body>
 </html>
 

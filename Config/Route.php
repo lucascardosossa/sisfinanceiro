@@ -36,7 +36,7 @@ Class Route
     /**
      * @param mixed $route
      */
-    public function setRoute($route)
+    public function setRoute($route, $params)
     {
         switch ($route) {
             case 'ctreceber':
@@ -46,7 +46,8 @@ Class Route
                 $this->route = $this->conta_pagar->getContent();
                 break;
             case 'new_ctreceber':
-                $this->route = $this->conta_receber->create();
+            case 'insert_ctreceber':
+                $this->route = $this->conta_receber->create($params);
                 break;
         }
     }

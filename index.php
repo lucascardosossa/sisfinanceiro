@@ -8,11 +8,10 @@
 
 require_once("Config/custom.php");
 require_once("Config/Route.php");
-
 /*Rotas das requisições*/
 
 $routes = new Route();
-$routes->setRoute($_GET['action']);
+$routes->setRoute($_GET['action'], $_GET);
 $content = $routes->getRoute();
 
 /*Carrega layout default do sistema */

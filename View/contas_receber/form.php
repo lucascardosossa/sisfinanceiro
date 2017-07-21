@@ -5,6 +5,7 @@
  * Date: 20/07/17
  * Time: 20:59
  */
+
 ?>
 
 
@@ -17,58 +18,35 @@
             </div>
             <div class="x_content">
                 <br/>
-                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                <form id="demo-form2" action="#" data-parsley-validate class="form-horizontal form-label-left">
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descricao">Descrição <span
                                     class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" required="required"
+                            <input type="text" id="descricao" name="descricao" required="required"
                                    class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor">Valor <span
                                     class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="last-name" name="last-name" required="required"
-                                   class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="valor" name="valor" required="required"
+                                   class="form-control col-md-7 col-xs-12 money">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name /
-                            Initial</label>
+                        <label for="dt_recebimento" class="control-label col-md-3 col-sm-3 col-xs-12">Data
+                            recebimento</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text"
-                                   name="middle-name">
+                            <input id="dt_recebimento" class="form-control col-md-7 col-xs-12" type="text"
+                                   name="dt_recebimento" data-inputmask="'mask': '99/99/9999'">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div id="gender" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default" data-toggle-class="btn-primary"
-                                       data-toggle-passive-class="btn-default">
-                                    <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
-                                </label>
-                                <label class="btn btn-primary" data-toggle-class="btn-primary"
-                                       data-toggle-passive-class="btn-default">
-                                    <input type="radio" name="gender" value="female"> Female
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span
-                                    class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="text">
-                        </div>
-                    </div>
+                    <input type="hidden" name="action" id="action" value="insert_ctreceber">
                     <div class="ln_solid"></div>
                     <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

@@ -42,9 +42,14 @@ class ContasReceberController
         return $this->getContent();
     }
 
-    public function create()
+    public function create($params)
     {
-        $this->setContent('form');
-        return $this->getContent();
+        if ($params['action'] == 'insert_ctreceber') {
+            var_dump($params);
+        } else {
+            $this->setContent('form');
+            return $this->getContent();
+        }
+
     }
 }
