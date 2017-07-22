@@ -25,7 +25,7 @@
                                     class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="descricao" name="descricao" required="required"
+                            <input type="text" id="descricao" name="ContaReceber[descricao]" required="required"
                                    class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                                     class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="valor" name="valor" required="required"
+                            <input type="text" id="ContaReceber[valor]" name="ContaReceber[valor]" required="required"
                                    class="form-control col-md-7 col-xs-12 money">
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             recebimento</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="dt_recebimento" class="form-control col-md-7 col-xs-12" type="text"
-                                   name="dt_recebimento" data-inputmask="'mask': '99/99/9999'">
+                                   name="ContaReceber[data]" data-inputmask="'mask': '99/99/9999'">
                         </div>
                     </div>
                     <input type="hidden" name="action" id="action" value="insert_ctreceber">

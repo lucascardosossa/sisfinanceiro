@@ -5,9 +5,6 @@
  * Date: 20/07/17
  * Time: 22:34
  */
-include("Controller/ContasReceberController.php");
-include("Controller/ContasPagarController.php");
-
 
 Class Route
 {
@@ -43,11 +40,15 @@ Class Route
                 $this->route = $this->conta_receber->index();
                 break;
             case 'ctpagar':
-                $this->route = $this->conta_pagar->getContent();
+                $this->route = $this->conta_pagar->index();
                 break;
             case 'new_ctreceber':
             case 'insert_ctreceber':
                 $this->route = $this->conta_receber->create($params);
+                break;
+            case 'new_ctpagar':
+            case 'insert_ctpagar':
+                $this->route = $this->conta_pagar->create($params);
                 break;
         }
     }
