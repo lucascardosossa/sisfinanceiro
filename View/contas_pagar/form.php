@@ -51,15 +51,8 @@
                     <div class="form-group">
                         <div class="checkbox col-md-3 col-sm-3 ">
                             <label>
-                                <input type="checkbox" id="recorrente" name="recorrente" class=""> Recorrente
+                                <input type="checkbox" id="recorrente" name="recorrente" class="flat"> Recorrente
                             </label>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12" id="tipo_recorrencia" style="display: none">
-                            <select class="select2_single form-control" tabindex="-1">
-                                <option>Mensal</option>
-                                <option>Quinzeal</option>
-                                <option>Semanal</option>
-                            </select>
                         </div>
                     </div>
                     <input type="hidden" name="action" id="action" value="insert_ctpagar">

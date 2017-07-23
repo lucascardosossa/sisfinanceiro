@@ -48,6 +48,13 @@
                                    name="ContaReceber[data]" required="required" data-inputmask="'mask': '99/99/9999'">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="checkbox col-md-3 col-sm-3 ">
+                            <label>
+                                <input type="checkbox" id="recorrente" name="recorrente" class="flat"> Recorrente
+                            </label>
+                        </div>
+                    </div>
                     <input type="hidden" name="action" id="action" value="insert_ctreceber">
                     <div class="ln_solid"></div>
                     <div class="form-group">

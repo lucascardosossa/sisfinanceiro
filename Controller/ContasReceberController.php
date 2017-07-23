@@ -43,9 +43,14 @@ class ContasReceberController extends BaseController
         if ($params['action'] == 'insert_ctreceber') {
             $_GET['ContaReceber']['valor'] = $this->funcoes->formataValorDb($_GET['ContaReceber']['valor']);
             $_GET['ContaReceber']['data'] = $this->funcoes->FormataData($_GET['ContaReceber']['data']);
-            if ($this->objModel->save($_GET['ContaReceber'])) {
-                $retorno = $this->index(1);
-                return $this->setContent('index', self::$view, $retorno);
+            $recorrente = isset($_GET['recorrente']) ? 1 : 0;
+            if ($recorrente) {
+                return $this->SaveRecorrencia();
+            } else {
+                if ($this->objModel->save($_GET['ContaReceber'])) {
+                    $retorno = $this->index(1);
+                    return $this->setContent('index', self::$view, $retorno);
+                }
             }
         } else {
             return $this->setContent('form', self::$view);
@@ -76,4 +81,25 @@ class ContasReceberController extends BaseController
                 echo 'erro';
         }
     }
+
+    /**
+     * @return string
+     */
+    private function SaveRecorrencia()
+    {
+        $mes = explode('-', $_GET['ContaReceber']['data'])[1];
+        $currentData = $_GET['ContaReceber']['data'];
+        $retorno = false;
+        for ($i = $mes; $i <= 12; $i++) {
+            $dados = ['descricao' => $_GET['ContaReceber']['descricao'], 'valor' => $_GET['ContaReceber']['valor'], 'data' => $currentData];
+            $retorno = $this->objModel->save($dados);
+            $currentData = date("Y-m-d", strtotime("+1 month", strtotime($currentData)));
+        }
+        if ($retorno) {
+            $retorno = $this->index(1);
+            return $this->setContent('index', self::$view, $retorno);
+        } else
+            return false;
+    }
+
 }

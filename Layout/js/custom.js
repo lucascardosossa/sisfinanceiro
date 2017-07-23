@@ -79,12 +79,12 @@ $('.new_registry').on('click', function () {
         $("#form-insert").submit();
 });
 
-$("#recorrente").on('change', function () {
-    if ($(this).is(':checked'))
-        $("#tipo_recorrencia").show();
-    else
-        $("#tipo_recorrencia").hide();
-});
+// $("#recorrente").on('change', function () {
+//     if ($(this).is(':checked'))
+//         $("#tipo_recorrencia").show();
+//     else
+//         $("#tipo_recorrencia").hide();
+// });
 
 
 function mascaras() {
