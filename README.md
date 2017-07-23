@@ -4,5 +4,5 @@ Sistema Financeiro - Básico
 * Feito sem utilização de framework
 * Estrutura de MVC
 * Módulos de Contas a Receber e Contas a Pagar
-* Relatórios de recebimento
-* Relatórios de previsão
+* Relatórios de lançamentos para os próximos 30 dias
+* Relatórios de balanço financeiro
