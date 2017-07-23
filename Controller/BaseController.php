@@ -52,10 +52,10 @@ class BaseController
         return $this->content;
     }
 
-    public function setContent($content, $controller, $data = array())
+    public function setContent($view, $controller, $data = array())
     {
 
-        $view = "View/" . $controller . "/" . $content . ".php";
+        $view = "View/" . $controller . "/" . $view . ".php";
         if (is_array($data) && !empty($data)) {
             extract($data);
         }

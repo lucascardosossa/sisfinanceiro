@@ -12,6 +12,7 @@ Class Route
     private $route;
     private $conta_receber;
     private $conta_pagar;
+    private $lancamento;
 
     /**
      * Route constructor.
@@ -20,6 +21,7 @@ Class Route
     {
         $this->conta_receber = new Controller\ContasReceberController();
         $this->conta_pagar = new Controller\ContasPagarController();
+        $this->lancamento = new \Controller\LancamentosController();
     }
 
     /**
@@ -61,6 +63,9 @@ Class Route
                 break;
             case 'delete_ctpagar':
                 $this->route = $this->conta_pagar->delete();
+                break;
+            case 'lancamento_30':
+                $this->route = $this->lancamento->proximos30();
                 break;
         }
     }

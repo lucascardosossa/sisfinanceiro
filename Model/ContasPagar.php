@@ -31,6 +31,22 @@ class ContasPagar
         return $rows;
     }
 
+    public function getByConditions($conditions)
+    {
+        if (is_array($conditions)) {
+            foreach ($conditions as $field => $value) {
+                $value = $this->db->quote($value);
+                $update[] = "$field = $value";
+            }
+            $where = implode(' AND ', $update);
+        } else
+            $where = $conditions;
+
+        $query = "SELECT * FROM " . self::$table . " WHERE " . $where;
+        $rows = $this->db->select($query);
+        return $rows;
+    }
+
     public function save($params)
     {
         $campos = implode(",", array_keys($params));

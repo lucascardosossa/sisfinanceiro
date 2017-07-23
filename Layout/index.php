@@ -94,6 +94,8 @@
                                     <li><a href="index.php?action=new_ctreceber">Criar</a></li>
                                 </ul>
                             </li>
+                            <li><a href="index.php?action=lancamento_30"><i class="fa fa-money"></i>Lançamentos 30 dias</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -205,6 +207,11 @@
 <script src="<?= $dir_template ?>vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?= $dir_template ?>vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
 <script src="<?= $dir_template ?>vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+<!-- morris.js -->
+<script src="<?= $dir_template ?>vendors/raphael/raphael.min.js"></script>
+<script src="<?= $dir_template ?>vendors/morris.js/morris.min.js"></script>
+
 <!-- Custom Theme Scripts -->
 <script src="<?= $dir_template ?>build/js/custom.min.js"></script>
 <script src="Layout/js/custom.js"></script>

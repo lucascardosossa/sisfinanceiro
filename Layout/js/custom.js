@@ -85,7 +85,21 @@ $('.new_registry').on('click', function () {
 //     else
 //         $("#tipo_recorrencia").hide();
 // });
-
+var ctPagar = parseFloat($("#ctpagar_fin").val());
+var ctReceber = parseFloat($("#ctreceber_fin").val());
+var equilibrio = parseFloat($("#equilibrio_fin").val());
+console.log(ctPagar);
+Morris.Donut({
+    element: 'balanco',
+    data: [
+        {label: "Contas a Pagar", value: ctPagar},
+        {label: "Contas a Receber", value: ctReceber},
+        {label: "Balanço", value: equilibrio}
+    ],
+    formatter: function (y, data) {
+        return "R$" + y;
+    }
+});
 
 function mascaras() {
     $(".money").inputmask('decimal', {
