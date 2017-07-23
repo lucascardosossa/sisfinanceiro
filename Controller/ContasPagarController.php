@@ -8,12 +8,14 @@
 namespace Controller;
 
 use Model\ContasPagar;
+use Utilities\Funcoes;
 
 class ContasPagarController extends BaseController
 {
 
     private static $view = 'contas_pagar';
     private $objModel;
+    private $funcoes;
 
     /**
      * ContasPagarController constructor.
@@ -22,6 +24,7 @@ class ContasPagarController extends BaseController
     public function __construct()
     {
         $this->objModel = new ContasPagar();
+        $this->funcoes = new Funcoes();
     }
 
     public function index($afterInsert = 0)
@@ -37,8 +40,8 @@ class ContasPagarController extends BaseController
     public function create($params)
     {
         if ($params['action'] == 'insert_ctpagar') {
-            $_GET['ContaPagar']['valor'] = number_format((float)$_GET['ContaPagar']['valor'], 2);
-            $_GET['ContaPagar']['data'] = date('Y-m-d', strtotime(str_replace('/', '-', $_GET['ContaPagar']['data'])));
+            $_GET['ContaPagar']['valor'] = $this->funcoes->formataValorDb($_GET['ContaPagar']['valor']);
+            $_GET['ContaPagar']['data'] = $this->funcoes->FormataData($_GET['ContaPagar']['data']);
             if ($this->objModel->save($_GET['ContaPagar'])) {
                 $retorno = $this->index(1);
                 return $this->setContent('index', self::$view, $retorno);
@@ -47,6 +50,30 @@ class ContasPagarController extends BaseController
             return $this->setContent('form', self::$view);
         }
 
+    }
+
+    public function edit()
+    {
+        if (isset($_POST)) {
+
+            $_POST['ContaPagar']['valor'] = $this->funcoes->formataValorDb($_POST['ContaPagar']['valor']);
+            $_POST['ContaPagar']['data'] = $this->funcoes->FormataData($_POST['ContaPagar']['data']);
+            if ($this->objModel->update($_POST['ContaPagar'], $_POST['ContaPagar']['id'])) {
+                echo 'sucesso';
+            } else
+                echo 'erro';
+        }
+
+    }
+
+    public function delete()
+    {
+        if (isset($_POST)) {
+            if ($this->objModel->delete($_POST['id']))
+                echo "sucesso";
+            else
+                echo 'erro';
+        }
     }
 
 }

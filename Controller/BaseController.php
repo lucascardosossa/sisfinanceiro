@@ -9,11 +9,40 @@
 namespace Controller;
 
 
+use Utilities\Funcoes;
+
 class BaseController
 {
 
 
     private $content;
+    private $objFuncoes;
+
+    /**
+     * BaseController constructor.
+     * @param $objFuncoes
+     */
+    public function __construct()
+    {
+        $this->objFuncoes = new Funcoes();
+    }
+
+    /**
+     * @return Funcoes
+     */
+    public function getObjFuncoes()
+    {
+        return $this->objFuncoes;
+    }
+
+    /**
+     * @param Funcoes $objFuncoes
+     */
+    public function setObjFuncoes($objFuncoes)
+    {
+        $this->objFuncoes = $objFuncoes;
+    }
+
 
     /**
      * @return mixed

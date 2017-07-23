@@ -37,6 +37,15 @@
     <!-- bootstrap-daterangepicker -->
     <link href="<?= $dir_template ?>vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+    <!-- Datatables -->
+    <link href="<?= $dir_template ?>vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $dir_template ?>vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $dir_template ?>vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"
+          rel="stylesheet">
+    <link href="<?= $dir_template ?>vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"
+          rel="stylesheet">
+    <link href="<?= $dir_template ?>vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="<?= $dir_template ?>build/css/custom.min.css" rel="stylesheet">
 </head>
@@ -183,27 +192,23 @@
 <script src="<?= $dir_template ?>vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="<?= $dir_template ?>vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 
+<!-- Datatables -->
+<script src="<?= $dir_template ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="<?= $dir_template ?>vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?= $dir_template ?>build/js/custom.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $(".money").inputmask('decimal', {
-            'alias': 'numeric',
-            'groupSeparator': '.',
-            'autoGroup': true,
-            'digits': 2,
-            'radixPoint': ",",
-            'digitsOptional': false,
-            'allowMinus': false,
-            //'prefix': 'R$ ',
-            'placeholder': '',
-            'decimal': ",",
-            'thousands': ".",
-            'rightAlign': false,
-            'clearMaskOnLostFocus': true
-        });
-    });
-</script>
+<script src="Layout/js/custom.js"></script>
+
 </body>
 </html>
 

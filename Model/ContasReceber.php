@@ -40,4 +40,25 @@ class ContasReceber
         return $result;
     }
 
+    public function update($params, $id)
+    {
+
+        $update = array();
+        foreach ($params as $field => $value) {
+            $value = $this->db->quote($value);
+            $update[] = "$field = $value";
+        }
+        $update = implode(', ', $update);
+
+        $query = "UPDATE  " . self::$table . " SET $update WHERE id = " . $id;
+        $result = $this->db->query($query);
+        return $result;
+    }
+
+    public function delete($id)
+    {
+        $query = "DELETE FROM " . self::$table . " WHERE id = " . $id;
+        $result = $this->db->query($query);
+        return $result;
+    }
 }

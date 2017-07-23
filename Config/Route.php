@@ -50,6 +50,18 @@ Class Route
             case 'insert_ctpagar':
                 $this->route = $this->conta_pagar->create($params);
                 break;
+            case 'edit_ctreceber':
+                $this->route = $this->conta_receber->edit();
+                break;
+            case 'edit_ctpagar':
+                $this->route = $this->conta_pagar->edit();
+                break;
+            case 'delete_ctreceber':
+                $this->route = $this->conta_receber->delete();
+                break;
+            case 'delete_ctpagar':
+                $this->route = $this->conta_pagar->delete();
+                break;
         }
     }
 

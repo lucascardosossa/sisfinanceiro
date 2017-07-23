@@ -10,18 +10,21 @@ namespace Controller;
 
 
 use Model\ContasReceber;
+use Utilities\Funcoes;
 
 class ContasReceberController extends BaseController
 {
 
     private static $view = 'contas_receber';
     private $objModel;
+    private $funcoes;
     /**
      * ContasReceberController constructor.
      */
     public function __construct()
     {
         $this->objModel = new ContasReceber();
+        $this->funcoes = new Funcoes();
     }
 
 
@@ -38,8 +41,8 @@ class ContasReceberController extends BaseController
     public function create($params)
     {
         if ($params['action'] == 'insert_ctreceber') {
-            $_GET['ContaReceber']['valor'] = number_format((float)$_GET['ContaReceber']['valor'], 2);
-            $_GET['ContaReceber']['data'] = date('Y-m-d', strtotime(str_replace('/', '-', $_GET['ContaReceber']['data'])));
+            $_GET['ContaReceber']['valor'] = $this->funcoes->formataValorDb($_GET['ContaReceber']['valor']);
+            $_GET['ContaReceber']['data'] = $this->funcoes->FormataData($_GET['ContaReceber']['data']);
             if ($this->objModel->save($_GET['ContaReceber'])) {
                 $retorno = $this->index(1);
                 return $this->setContent('index', self::$view, $retorno);
@@ -48,5 +51,29 @@ class ContasReceberController extends BaseController
             return $this->setContent('form', self::$view);
         }
 
+    }
+
+    public function edit()
+    {
+        if (isset($_POST)) {
+
+            $_POST['ContaReceber']['valor'] = $this->funcoes->formataValorDb($_POST['ContaReceber']['valor']);
+            $_POST['ContaReceber']['data'] = $this->funcoes->FormataData($_POST['ContaReceber']['data']);
+            if ($this->objModel->update($_POST['ContaReceber'], $_POST['ContaReceber']['id'])) {
+                echo 'sucesso';
+            } else
+                echo 'erro';
+        }
+
+    }
+
+    public function delete()
+    {
+        if (isset($_POST)) {
+            if ($this->objModel->delete($_POST['id']))
+                echo "sucesso";
+            else
+                echo 'erro';
+        }
     }
 }
