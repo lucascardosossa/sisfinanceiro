@@ -18,7 +18,7 @@
             </div>
             <div class="x_content">
                 <br/>
-                <form id="demo-form2" action="#" data-parsley-validate class="form-horizontal form-label-left">
+                <form id="form-insert" action="#" data-parsley-validate class="form-horizontal form-label-left">
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descricao">Descrição <span
@@ -48,12 +48,26 @@
                                    name="ContaPagar[data]" required="required" data-inputmask="'mask': '99/99/9999'">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="checkbox col-md-3 col-sm-3 ">
+                            <label>
+                                <input type="checkbox" id="recorrente" name="recorrente" class=""> Recorrente
+                            </label>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12" id="tipo_recorrencia" style="display: none">
+                            <select class="select2_single form-control" tabindex="-1">
+                                <option>Mensal</option>
+                                <option>Quinzeal</option>
+                                <option>Semanal</option>
+                            </select>
+                        </div>
+                    </div>
                     <input type="hidden" name="action" id="action" value="insert_ctpagar">
                     <div class="ln_solid"></div>
                     <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                             <button class="btn btn-primary" type="reset">Limpar</button>
-                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button type="button" class="new_registry btn btn-success">Salvar</button>
                         </div>
                     </div>
 

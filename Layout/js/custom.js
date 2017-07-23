@@ -16,7 +16,7 @@ $(document).ready(function () {
     });
 });
 
-
+// Evento de carregar dados na grid no modal para edição
 $('.edit').on('click', function () {
     var row = $(this).closest('tr');
     var descricao = row.find("td:nth-child(1)").text();
@@ -32,6 +32,7 @@ $('.edit').on('click', function () {
     return false;
 });
 
+// Evento para salvar a edição do registro
 $('.save').on('click', function () {
     var action = $('#action_index').val();
     $.ajax({
@@ -46,6 +47,7 @@ $('.save').on('click', function () {
     });
 });
 
+// Evento de remover registros
 $(".delete").on('click', function () {
     var action = $('#action_index').val();
     var result = confirm("Deseja realmente deletar este registro?");
@@ -64,6 +66,24 @@ $(".delete").on('click', function () {
 
     }
     return false;
+});
+
+// Controle de inserções
+$('.new_registry').on('click', function () {
+    var limite = 881.90;
+    var valor = $("#valor").val();
+    valor = parseFloat(valor.replace('.', '').replace(',', '.'));
+    if (valor > limite)
+        alert('Valor superior ao permitido');
+    else
+        $("#form-insert").submit();
+});
+
+$("#recorrente").on('change', function () {
+    if ($(this).is(':checked'))
+        $("#tipo_recorrencia").show();
+    else
+        $("#tipo_recorrencia").hide();
 });
 
 
